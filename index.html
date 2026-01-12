@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DC314 - St. Louis Cybersecurity Meetup</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- background effects -->
+    <div class="fx fx-grid" aria-hidden="true"></div>
+    <div class="fx fx-scanlines" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="top">
+      <div class="top__inner">
+        <img class="top__logo" src="logo.svg" alt="DC314 logo" />
+
+        <div class="top__center">
+          <div class="top__kicker"><span class="prompt">$</span> dc314</div>
+          <div class="top__title">DC314 St. Louis</div>
+          <div class="top__subtitle">Monthly hands-on cybersecurity meetup</div>
+        </div>
+
+        <div class="top__spacer" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <!-- Next Meetup -->
+      <section id="next" class="event">
+        <div class="event__bar">
+          <span class="dot dot--r"></span>
+          <span class="dot dot--y"></span>
+          <span class="dot dot--g"></span>
+          <span class="event__title">next_meetup</span>
+        </div>
+
+        <div class="event__body">
+          <img class="event__logo" src="logo.svg" alt="" aria-hidden="true" />
+
+          <!-- TAGLINE -->
+          <div class="tagline">
+            <span class="tagline__mark">⌁</span>
+            <span class="tagline__text">Bring Your Laptop</span>
+          </div>
+
+          <div class="event__headline">
+            <h1>
+              <span data-next-meetup-date>January 15, 2026</span> • 6:00 PM
+            </h1>
+
+            <p class="event__countdown">
+              <span class="prompt">▸</span>
+              Countdown:
+              <span data-countdown>--d --:--:--</span>
+              <span class="muted">(America/Chicago)</span>
+            </p>
+
+            <p class="event__where">
+              <span class="prompt">▸</span>
+              <a
+                href="https://maps.app.goo.gl/p3VMvwh3EcgTvwBK9"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Odditeas Cafe (St. Louis)
+              </a>
+            </p>
+          </div>
+
+          <div class="event__ctas">
+            <a
+              class="btn btn--primary"
+              href="https://maps.app.goo.gl/p3VMvwh3EcgTvwBK9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Get directions
+            </a>
+            <a
+              class="btn btn--ghost"
+              href="https://discord.gg/YztctVeWqN"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Join Discord for updates
+            </a>
+          </div>
+
+          <div class="event__chips">
+            <span class="chip">All skill levels</span>
+            <span class="chip chip--dim">Talk + hands-on activity</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section">
+        <div class="section__header">
+          <h2><span class="prompt">$</span> about</h2>
+          <p class="muted">Hackers, Cyber, Tech.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>What to expect</h3>
+		<p class="muted">
+		  Each meetup includes a focused technical talk followed by a hands-on activity,
+		  with plenty of time to collaborate and meet other hackers and cyber professionals.
+		</p>
+          </div>
+
+          <div class="card">
+            <h3>Who it’s for</h3>
+		<p class="muted">
+		  DC314 is for beginners, students, IT professionals, defenders, and builders.
+		  If you’re curious about technology or security, you’re welcome — no gatekeeping.
+		</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Minimum Specs -->
+      <section class="section">
+        <div class="section__header">
+          <h2><span class="prompt">$</span> minimum_recommended_specs</h2>
+          <p class="muted">For hands-on participation</p>
+        </div>
+
+        <div class="card">
+          <div class="specs">
+            <div class="specs__row">
+              <div class="specs__k">OS</div>
+              <div class="specs__v">Windows 10/11, macOS 12+, or Linux</div>
+            </div>
+            <div class="specs__row">
+              <div class="specs__k">CPU</div>
+              <div class="specs__v">Intel i5 (8th gen+) or Ryzen 5 (3000+)</div>
+            </div>
+            <div class="specs__row">
+              <div class="specs__k">RAM</div>
+              <div class="specs__v">8 GB minimum (16 GB recommended)</div>
+            </div>
+            <div class="specs__row">
+              <div class="specs__k">GPU</div>
+              <div class="specs__v">Integrated graphics is sufficient</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+	<section class="section">
+	  <div class="section__header">
+	    <h2><span class="prompt">$</span> contact</h2>
+	    <p class="muted">Questions, speakers, or sponsors.</p>
+	  </div>
+
+	  <div class="card">
+	    <div class="contact">
+	      <a class="contact__row" href="mailto:contact@dc314.org">
+		<span class="prompt">$</span> contact@dc314.org
+	      </a>
+
+	      <!-- Social icons now live here -->
+	      <div class="social-icons social-icons--centered" aria-label="DC314 social links">
+		<!-- (keep your existing icon links exactly as-is) -->
+		<!-- LinkedIn -->
+		<a class="iconbtn" href="https://www.linkedin.com/groups/16836006/" target="_blank" rel="noopener noreferrer" aria-label="DC314 on LinkedIn">
+		  <img class="iconbtn__img" src="icons/linkedin.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- Facebook -->
+		<a class="iconbtn" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on Facebook">
+		  <img class="iconbtn__img" src="icons/facebook-f.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- Instagram -->
+		<a class="iconbtn" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on Instagram">
+		  <img class="iconbtn__img" src="icons/instagram.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- Twitter / X -->
+		<a class="iconbtn" href="https://www.x.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on Twitter">
+		  <img class="iconbtn__img" src="icons/x-twitter.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- Bluesky -->
+		<a class="iconbtn" href="https://www.bluesky.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on Bluesky">
+		  <img class="iconbtn__img" src="icons/bluesky.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- Threads -->
+		<a class="iconbtn" href="https://www.threads.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on Threads">
+		  <img class="iconbtn__img" src="icons/threads.svg" alt="" aria-hidden="true" />
+		</a>
+
+		<!-- TikTok -->
+		<a class="iconbtn" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="DC314 on TikTok">
+		  <img class="iconbtn__img" src="icons/tiktok.svg" alt="" aria-hidden="true" />
+		</a>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+
+      <footer class="footer">
+        <span class="prompt">$</span> DC314 • St. Louis • DEF CON Group
+      </footer>
+    </main>
+
+    <!-- Countdown + Third Thursday Logic -->
+    <script>
+      (function () {
+        const TZ = "America/Chicago";
+        const dateEl = document.querySelector("[data-next-meetup-date]");
+        const countdownEl = document.querySelector("[data-countdown]");
+
+        function chicagoYMD(date) {
+          return new Intl.DateTimeFormat("en-CA", {
+            timeZone: TZ,
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }).format(date);
+        }
+
+        function thirdThursday(y, m) {
+          const first = new Date(y, m, 1);
+          const offset = (4 - first.getDay() + 7) % 7;
+          return new Date(y, m, 1 + offset + 14);
+        }
+
+        function formatLong(d) {
+          return new Intl.DateTimeFormat("en-US", {
+            timeZone: TZ,
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          }).format(d);
+        }
+
+        function localToUtc(y, m, d, h) {
+          const probe = new Date(Date.UTC(y, m, d, 12));
+          const offset =
+            new Date(
+              probe.toLocaleString("en-US", { timeZone: TZ })
+            ).getTimezoneOffset();
+          return Date.UTC(y, m, d, h) + offset * 60000;
+        }
+
+        function countdown(meetup) {
+          const t = localToUtc(
+            meetup.getFullYear(),
+            meetup.getMonth(),
+            meetup.getDate(),
+            18
+          );
+
+          function tick() {
+            const diff = t - Date.now();
+            if (diff <= 0) {
+              countdownEl.textContent = "Meetup day!";
+              return;
+            }
+            const s = Math.floor(diff / 1000);
+            const d = Math.floor(s / 86400);
+            const h = Math.floor((s % 86400) / 3600);
+            const m = Math.floor((s % 3600) / 60);
+            const sec = s % 60;
+            countdownEl.textContent = `${d}d ${h
+              .toString()
+              .padStart(2, "0")}:${m.toString().padStart(2, "0")}:${sec
+              .toString()
+              .padStart(2, "0")}`;
+          }
+          tick();
+          setInterval(tick, 1000);
+        }
+
+        const now = new Date();
+        let meetup = thirdThursday(now.getFullYear(), now.getMonth());
+        if (chicagoYMD(now) > chicagoYMD(meetup)) {
+          meetup = thirdThursday(
+            now.getMonth() === 11 ? now.getFullYear() + 1 : now.getFullYear(),
+            (now.getMonth() + 1) % 12
+          );
+        }
+
+        dateEl.textContent = formatLong(meetup);
+        countdown(meetup);
+      })();
+    </script>
+  </body>
+</html>
+
