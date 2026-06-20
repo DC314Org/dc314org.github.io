@@ -218,87 +218,106 @@
     </main>
 
     <!-- Countdown + Third Thursday Logic -->
-    <script>
-      (function () {
-        const TZ = "America/Chicago";
-        const dateEl = document.querySelector("[data-next-meetup-date]");
-        const countdownEl = document.querySelector("[data-countdown]");
+<script>
+(function () {
+  const TZ = "America/Chicago";
+  const dateEl = document.querySelector("[data-next-meetup-date]");
+  const countdownEl = document.querySelector("[data-countdown]");
 
-        function chicagoYMD(date) {
-          return new Intl.DateTimeFormat("en-CA", {
-            timeZone: TZ,
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          }).format(date);
-        }
+  function chicagoParts(date) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    }).formatToParts(date);
 
-        function thirdThursday(y, m) {
-          const first = new Date(y, m, 1);
-          const offset = (4 - first.getDay() + 7) % 7;
-          return new Date(y, m, 1 + offset + 14);
-        }
+    return {
+      year: Number(parts.find(p => p.type === "year").value),
+      month: Number(parts.find(p => p.type === "month").value),
+      day: Number(parts.find(p => p.type === "day").value),
+    };
+  }
 
-        function formatLong(d) {
-          return new Intl.DateTimeFormat("en-US", {
-            timeZone: TZ,
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          }).format(d);
-        }
+  function thirdThursday(year, month) {
+    const first = new Date(Date.UTC(year, month, 1));
+    const weekday = first.getUTCDay();
+    const offset = (4 - weekday + 7) % 7;
+    return 1 + offset + 14;
+  }
 
-        function localToUtc(y, m, d, h) {
-          const probe = new Date(Date.UTC(y, m, d, 12));
-          const offset =
-            new Date(
-              probe.toLocaleString("en-US", { timeZone: TZ })
-            ).getTimezoneOffset();
-          return Date.UTC(y, m, d, h) + offset * 60000;
-        }
+  function chicagoOffset(date) {
+    const local = new Date(
+      date.toLocaleString("en-US", { timeZone: TZ })
+    );
+    return local.getTime() - date.getTime();
+  }
 
-        function countdown(meetup) {
-          const t = localToUtc(
-            meetup.getFullYear(),
-            meetup.getMonth(),
-            meetup.getDate(),
-            18
-          );
+  function chicagoDate(year, month, day, hour, minute = 0) {
+    const utcGuess = new Date(
+      Date.UTC(year, month, day, hour, minute)
+    );
 
-          function tick() {
-            const diff = t - Date.now();
-            if (diff <= 0) {
-              countdownEl.textContent = "Meetup day!";
-              return;
-            }
-            const s = Math.floor(diff / 1000);
-            const d = Math.floor(s / 86400);
-            const h = Math.floor((s % 86400) / 3600);
-            const m = Math.floor((s % 3600) / 60);
-            const sec = s % 60;
-            countdownEl.textContent = `${d}d ${h
-              .toString()
-              .padStart(2, "0")}:${m.toString().padStart(2, "0")}:${sec
-              .toString()
-              .padStart(2, "0")}`;
-          }
-          tick();
-          setInterval(tick, 1000);
-        }
+    return new Date(
+      utcGuess.getTime() - chicagoOffset(utcGuess)
+    );
+  }
 
-        const now = new Date();
-        let meetup = thirdThursday(now.getFullYear(), now.getMonth());
-        if (chicagoYMD(now) > chicagoYMD(meetup)) {
-          meetup = thirdThursday(
-            now.getMonth() === 11 ? now.getFullYear() + 1 : now.getFullYear(),
-            (now.getMonth() + 1) % 12
-          );
-        }
+  function formatLong(date) {
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ,
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(date);
+  }
 
-        dateEl.textContent = formatLong(meetup);
-        countdown(meetup);
-      })();
-    </script>
+  const now = new Date();
+  const chicagoNow = chicagoParts(now);
+
+  let year = chicagoNow.year;
+  let month = chicagoNow.month - 1;
+
+  let day = thirdThursday(year, month);
+  let meetup = chicagoDate(year, month, day, 18);
+
+  if (now >= meetup) {
+    month++;
+    if (month > 11) {
+      month = 0;
+      year++;
+    }
+
+    day = thirdThursday(year, month);
+    meetup = chicagoDate(year, month, day, 18);
+  }
+
+  dateEl.textContent = formatLong(meetup);
+
+  function tick() {
+    const diff = meetup.getTime() - Date.now();
+
+    if (diff <= 0) {
+      countdownEl.textContent = "Meetup day!";
+      return;
+    }
+
+    const s = Math.floor(diff / 1000);
+    const d = Math.floor(s / 86400);
+    const h = Math.floor((s % 86400) / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+
+    countdownEl.textContent =
+      `${d}d ${String(h).padStart(2, "0")}:` +
+      `${String(m).padStart(2, "0")}:` +
+      `${String(sec).padStart(2, "0")}`;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
   </body>
 </html>
