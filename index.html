@@ -280,7 +280,7 @@
   let month = chicagoNow.month - 1;
 
   let day = thirdThursday(year, month);
-  let meetup = chicagoDate(year, month, day, 18);
+  let meetup = chicagoDate(year, month, day, 19);
 
   if (now >= meetup) {
     month++;
@@ -290,7 +290,7 @@
     }
 
     day = thirdThursday(year, month);
-    meetup = chicagoDate(year, month, day, 18);
+    meetup = chicagoDate(year, month, day, 19);
   }
 
   dateEl.textContent = formatLong(meetup);
